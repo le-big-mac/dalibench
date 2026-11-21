@@ -1,0 +1,56 @@
+# The two best models of DaliBench at 256 cells wide, twice the largest width of the published run.
+#
+# Claude Fable 5.2 and GPT-6.2 Astra, one attempt at each of the sixteen paintings, with the model
+# settings of configs/dalibench.yaml. These pictures are not judged: the config lists no judge.
+# The API keys are read from the environment: ANTHROPIC_API_KEY and OPENAI_API_KEY.
+#
+# Run from the repository root:
+#   paintbench estimate --config configs/dalibench-256.yaml    # counts the calls and prints a rough cost; calls no model
+#   paintbench attempt  --config configs/dalibench-256.yaml
+#   paintbench report   --run runs/dalibench-256
+run_id: dalibench-256
+runs_dir: ../runs                # relative to this file: the repository's runs/ directory
+encoding: palette
+paintings:
+  - great-wave
+  - the-scream
+  - birth-of-venus
+  - mona-lisa
+  - starry-night
+  - girl-with-a-pearl-earring
+  - the-kiss
+  - grande-jatte
+  - wanderer-above-the-sea-of-fog
+  - night-watch
+  - red-fuji
+  - sudden-shower
+  - fighting-temeraire
+  - water-lilies-1906
+  - sunflowers-1888
+  - persistence-of-memory
+widths: [256]
+repeats: 1
+limits:
+  max_steps: 100                 # model calls per attempt. Of the published 256-wide pictures, GPT-6.2 Astra's had 100 and Fable 5.2's had 40.
+  max_minutes: 180
+  max_nudges: 3
+retries: {call_retries: 8, restarts: 2, backoff_seconds: 2, backoff_max_seconds: 60}
+concurrency: {anthropic: 4, openai: 4}   # attempts at once per provider: set these to what your own rate limits allow
+
+models:
+  - name: fable-5.2
+    provider: anthropic
+    model: claude-fable-5-2
+    family: claude
+    reasoning: {thinking: adaptive, effort: max, display: summarized}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 8.0, output_per_mtok: 40.0}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: gpt-6.2-astra
+    provider: openai
+    model: gpt-6.2-astra
+    family: gpt
+    reasoning: {effort: max}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 8.0, output_per_mtok: 40.0}
+    options: {api_key_env: OPENAI_API_KEY}

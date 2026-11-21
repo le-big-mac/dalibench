@@ -1,0 +1,38 @@
+# Mona Lisa: the wording given to the model, the grid heights, and where the reference image came from.
+slug: mona-lisa
+display_name: Mona Lisa
+prompt:
+  title: Mona Lisa
+  artist: Leonardo da Vinci
+  date: about 1503 to 1519
+  version_note: ''
+grid_heights:
+  16: 24
+  32: 48
+  64: 96
+  128: 192
+  256: 384
+public_domain:
+  made: about 1503 to 1519
+  artist_died: 1519
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: Musée du Louvre, Département des Peintures, Paris
+  accession: INV 779
+  source_page_url: https://commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF.jpg
+  download_url: https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF.jpg/3840px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF.jpg
+  download_date: '2026-11-20'
+  licence_statement: Wikimedia Commons treats the image as public domain in the United States, as a faithful
+    reproduction of a public-domain work, and notes that reuse may be restricted elsewhere.
+  licence_url: https://creativecommons.org/publicdomain/mark/1.0/
+  credit: 'Musée du Louvre, Paris (INV 779). Scan: C2RMF. Image via Wikimedia Commons, treated there as public domain (a
+    faithful reproduction of a public-domain work).'
+  licence_caveat: ''
+  original_sha256: 0aa85cdb70a5ea0fcfe4d93f077be1385c995dc975ab104779bee573607ed830
+  original_pixel_size: [3840, 5622]
+  crop_box: [99, 83, 3737, 5538]
+  cropped_pixel_size: [3638, 5455]
+  height_over_width: 1.49945
+  reference_sha256: ac0b60e105ef65837e855d736f8bcf5c21d11fee8188148571220121ea39a4af
+  reference_pixel_size: [683, 1024]

@@ -1,0 +1,38 @@
+# La Grande Jatte: the wording given to the model, the grid heights, and where the reference image came from.
+slug: grande-jatte
+display_name: La Grande Jatte
+prompt:
+  title: A Sunday Afternoon on the Island of La Grande Jatte
+  artist: Georges Seurat
+  date: 1884 to 1886
+  version_note: ''
+grid_heights:
+  16: 11
+  32: 21
+  64: 43
+  128: 86
+  256: 171
+public_domain:
+  made: 1884 to 1886
+  artist_died: 1891
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: Art Institute of Chicago
+  accession: '1926.224'
+  source_page_url: https://www.artic.edu/artworks/27992/a-sunday-on-la-grande-jatte-1884
+  download_url: https://www.artic.edu/iiif/2/2d484387-2509-5e8e-2c43-22f9981972eb/full/!3000,3000/0/default.jpg
+  download_date: '2026-11-20'
+  licence_statement: The Art Institute of Chicago offers the image under CC0 (its CC0 Public Domain Designation), free
+    to use for any purpose without permission.
+  licence_url: https://creativecommons.org/publicdomain/zero/1.0/
+  credit: Georges Seurat. A Sunday on La Grande Jatte — 1884, 1884–86, border added 1888–89. The Art Institute of
+    Chicago (1926.224). CC0.
+  licence_caveat: ''
+  original_sha256: 4fc474eb63df41802beb1398df4c16449ec728207544443a400883c4f50b3884
+  original_pixel_size: [3000, 2009]
+  crop_box: [0, 0, 3000, 2009]
+  cropped_pixel_size: [3000, 2009]
+  height_over_width: 0.66967
+  reference_sha256: 70b1eca924b6846658a292be14ef638564c72ba0d9e2e575d2e6ee7e2c651fb8
+  reference_pixel_size: [1024, 686]

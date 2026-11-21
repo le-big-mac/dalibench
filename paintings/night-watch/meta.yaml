@@ -1,0 +1,36 @@
+# The Night Watch: the wording given to the model, the grid heights, and where the reference image came from.
+slug: night-watch
+display_name: The Night Watch
+prompt:
+  title: The Night Watch
+  artist: Rembrandt van Rijn
+  date: '1642'
+  version_note: ''
+grid_heights:
+  16: 13
+  32: 27
+  64: 53
+  128: 107
+  256: 213
+public_domain:
+  made: '1642'
+  artist_died: 1669
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: Rijksmuseum, Amsterdam (on loan from the City of Amsterdam)
+  accession: SK-C-5
+  source_page_url: https://www.rijksmuseum.nl/en/collection/object/The-Night-Watch-Militia-Company-of-District-II-under-the-Command-of-Captain-Frans-Banninck-Cocq--3137deb45cd7765f9a76084a16c99544
+  download_url: https://iiif.micr.io/PJEZO/full/max/0/default.jpg
+  download_date: '2026-11-20'
+  licence_statement: The Rijksmuseum marks the work and its image public domain (Public Domain Mark 1.0).
+  licence_url: https://creativecommons.org/publicdomain/mark/1.0/deed.en
+  credit: Rijksmuseum, Amsterdam (SK-C-5), on loan from the City of Amsterdam. Public domain.
+  licence_caveat: ''
+  original_sha256: a39526d16e032d071e38c6667fbf1909a81575a4e566bb9ece7ddec7ed6e5a03
+  original_pixel_size: [7133, 5922]
+  crop_box: [27, 22, 7111, 5922]
+  cropped_pixel_size: [7084, 5900]
+  height_over_width: 0.83286
+  reference_sha256: 97379f737b076ed8ea9ea1b0d0f1d9047d54a5d53dd08750376ff5b8edb515f7
+  reference_pixel_size: [1024, 853]

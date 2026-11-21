@@ -1,0 +1,40 @@
+# Sunflowers (1888): the wording given to the model, the grid heights, and where the reference image came from.
+slug: sunflowers-1888
+display_name: Sunflowers (1888)
+prompt:
+  title: Sunflowers
+  artist: Vincent van Gogh
+  date: '1888'
+  version_note: This is the 1888 version in the National Gallery, London.
+grid_heights:
+  16: 20
+  32: 41
+  64: 81
+  128: 162
+  256: 325
+public_domain:
+  made: '1888'
+  artist_died: 1890
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: The National Gallery, London
+  accession: NG3863
+  source_page_url: https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Sunflowers_(1888,_National_Gallery_London).jpg
+  download_url: https://upload.wikimedia.org/wikipedia/commons/f/fe/Vincent_van_Gogh_-_Sunflowers_%281888%2C_National_Gallery_London%29.jpg
+  download_date: '2026-11-20'
+  licence_statement: Wikimedia Commons treats the image as public domain in the United States, as a faithful
+    reproduction of a public-domain work, and notes that reuse may be restricted elsewhere.
+  licence_url: https://creativecommons.org/publicdomain/mark/1.0/
+  credit: 'The National Gallery, London (NG3863). Photo: The National Gallery, London. Image via Wikimedia Commons,
+    treated there as public domain (a faithful reproduction of a public-domain work).'
+  licence_caveat: LICENCE DOUBT. The National Gallery claims copyright in this photograph, which is its own, and offers
+    it only under CC BY-NC-ND 4.0; Wikimedia Commons hosts it as public domain under its policy on faithful
+    reproductions. This repository follows Commons; anyone reusing the image should decide whether to do the same.
+  original_sha256: 33a405dae8e8bc013b37f7f9b7ea1b560e193558c0f99b8c97ae06cf8b447ab6
+  original_pixel_size: [4719, 6000]
+  crop_box: [0, 12, 4719, 6000]
+  cropped_pixel_size: [4719, 5988]
+  height_over_width: 1.26891
+  reference_sha256: 19917784ee5afadb1b74f1c11c0067f55374c203bff5d3956c69ceb116fceed6
+  reference_pixel_size: [807, 1024]

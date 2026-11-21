@@ -1,0 +1,143 @@
+# DaliBench: sixteen paintings at four widths, nine model entries, two judges.
+#
+# Every model is at its provider's highest reasoning setting. Claude Haiku 5.5 is listed a second
+# time at its default effort and kept aside from the scores (see `aside` at the end).
+# The API keys are read from the environment: ANTHROPIC_API_KEY, OPENAI_API_KEY, and GEMINI_API_KEY.
+#
+# Run from the repository root:
+#   paintbench estimate --config configs/dalibench.yaml    # counts the calls and prints a rough cost; calls no model
+#   paintbench attempt  --config configs/dalibench.yaml    # the models type their pictures
+#   paintbench judge    --run runs/dalibench               # the judges rank them
+#   paintbench score    --run runs/dalibench
+#   paintbench report   --run runs/dalibench
+#
+# The Persistence of Memory is in copyright, so its reference image is not in the repository. Before judging:
+#   python scripts/fetch_originals.py persistence-of-memory
+#
+# In the published run an attempt that the provider blocked was sent again, up to two more times:
+#   paintbench attempt  --config configs/dalibench.yaml --retry-refused
+run_id: dalibench
+runs_dir: ../runs                # relative to this file: the repository's runs/ directory
+encoding: palette
+paintings:
+  - persistence-of-memory
+  - great-wave
+  - the-scream
+  - birth-of-venus
+  - mona-lisa
+  - starry-night
+  - girl-with-a-pearl-earring
+  - the-kiss
+  - grande-jatte
+  - wanderer-above-the-sea-of-fog
+  - night-watch
+  - red-fuji
+  - sudden-shower
+  - fighting-temeraire
+  - water-lilies-1906
+  - sunflowers-1888
+widths: [16, 32, 64, 128]
+repeats: 1
+limits: {max_steps: 40, max_minutes: 180, max_nudges: 3}
+retries: {call_retries: 8, restarts: 2, backoff_seconds: 2, backoff_max_seconds: 60}
+concurrency: {anthropic: 8, openai: 4, google: 4}   # attempts at once per provider: set these to what your own rate limits allow
+
+models:
+  - name: fable-5.2
+    provider: anthropic
+    model: claude-fable-5-2
+    family: claude
+    reasoning: {thinking: adaptive, effort: max, display: summarized}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 8.0, output_per_mtok: 40.0}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: opus-5.5
+    provider: anthropic
+    model: claude-opus-5-5
+    family: claude
+    reasoning: {thinking: adaptive, effort: max, display: summarized}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 4.0, output_per_mtok: 20.0}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: sonnet-5.5
+    provider: anthropic
+    model: claude-sonnet-5-5
+    family: claude
+    reasoning: {thinking: adaptive, effort: max, display: summarized}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 2.0, output_per_mtok: 10.0}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: haiku-5.5
+    provider: anthropic
+    model: claude-haiku-5-5
+    family: claude
+    reasoning: {thinking: adaptive, effort: max, display: summarized}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 0.1, output_per_mtok: 0.5}    # prompts over 100k tokens are billed 5x; not modelled
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: fable-5
+    provider: anthropic
+    model: claude-fable-5
+    family: claude
+    reasoning: {thinking: adaptive, effort: max, display: summarized}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 10.0, output_per_mtok: 50.0}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: sonnet-5
+    provider: anthropic
+    model: claude-sonnet-5
+    family: claude
+    reasoning: {thinking: adaptive, effort: max, display: summarized}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 2.0, output_per_mtok: 10.0}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: haiku-5.5-default-effort
+    provider: anthropic
+    model: claude-haiku-5-5
+    family: claude
+    reasoning: {}                # nothing sent: the model's own default
+    max_output_tokens: 128000
+    price: {input_per_mtok: 0.1, output_per_mtok: 0.5}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: gemini-4-carbon
+    provider: google
+    model: gemini-4-carbon
+    family: gemini
+    reasoning: {effort: high}    # the highest this model takes
+    max_output_tokens: 65536     # the most one request returns
+    price: {input_per_mtok: 2.0, output_per_mtok: 10.0}
+    options: {api_key_env: GEMINI_API_KEY}
+  - name: gpt-6.2-astra
+    provider: openai
+    model: gpt-6.2-astra
+    family: gpt
+    reasoning: {effort: max}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 8.0, output_per_mtok: 40.0}
+    options: {api_key_env: OPENAI_API_KEY}
+
+judges:
+  - name: fable-5.2-judge
+    provider: anthropic
+    model: claude-fable-5-2
+    family: claude
+    reasoning: {thinking: adaptive, effort: high}
+    max_output_tokens: 64000
+    price: {input_per_mtok: 8.0, output_per_mtok: 40.0}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+  - name: opus-5.5-judge
+    provider: anthropic
+    model: claude-opus-5-5
+    family: claude
+    reasoning: {thinking: adaptive, effort: high}
+    max_output_tokens: 64000
+    price: {input_per_mtok: 4.0, output_per_mtok: 20.0}
+    options: {auth: {type: api_key, env: ANTHROPIC_API_KEY}}
+
+judge:
+  repeats: 3                     # judging calls per set, each with fresh random labels and order
+  max_per_call: 9                # the nine pictures of a painting at one width are ranked in one call
+  peak_size: true                # also rank each model's own sizes of a painting against each other
+
+# Made and judged like the others, but left out of every comparison when the scores are computed.
+aside: [haiku-5.5-default-effort]

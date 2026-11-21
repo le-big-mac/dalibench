@@ -1,0 +1,123 @@
+# Every key a run config can hold, with a ready-made entry for each API family.
+#
+# A run is one config. Adding a model, a judge, or a painting is an edit here; nothing in the code
+# changes. Check a config without spending anything:   paintbench estimate --config configs/example.yaml
+#
+# The Anthropic, OpenAI, and Google adapters have been run against their live APIs (20 November 2026;
+# the OpenAI one with gpt-6.2-astra, the Google one with gemini-4-carbon). The OpenAI-compatible adapter
+# was written from documentation and has been tested against mocked responses only. The notes each
+# adapter was written from are in docs/provider-notes/.
+
+run_id: example                  # the run directory is <runs_dir>/<run_id>
+runs_dir: ../runs                # relative to this file; default "runs" beside the config
+# paintings_dir: ../paintings    # default: ./paintings, else the paintings directory beside the package
+encoding: palette                # "palette": the model defines colours, one character per cell
+                                 # "value":   no palette, every cell typed as six hex digits
+# prompt_version: A5             # the version of the contestant prompt's wording; the default is the current one
+paintings: [great-wave, the-scream, birth-of-venus]     # directory names under paintings/
+widths: [32, 64]                 # each painting's meta.yaml fixes the height for a width
+repeats: 1                       # attempts per model, painting, and width. A set of more attempts than
+                                 # judge.max_per_call is judged in pairwise calls instead of one ranking call;
+                                 # pairwise judging has not been run against a live API.
+
+# strip_rows: 16                 # rows per tool call; default 16 for palette, 8 for value
+
+limits:
+  max_steps: 40                  # model calls per attempt
+  max_minutes: 60                # wall time per attempt (a restarted conversation gets its own)
+  max_nudges: 3                  # "the picture is not finished" messages per attempt
+
+retries:
+  call_retries: 8                # retries of one failed API call, waiting 2 s doubling to the cap
+  backoff_seconds: 2
+  backoff_max_seconds: 60        # also caps any wait a provider asks for
+  restarts: 2                    # fresh-conversation restarts after a discard, then the attempt is an error
+
+concurrency:                     # attempts (or judge calls) in flight per provider
+  default: 4
+  anthropic: 8
+
+models:
+  # ---- Anthropic. The highest setting on every current model: adaptive thinking, effort max.
+  - name: fable-5.2              # the label used in directory names and the report
+    provider: anthropic
+    model: claude-fable-5-2
+    family: claude               # free label; used to see whether judges favour their own family
+    reasoning: {thinking: adaptive, effort: max, display: summarized}
+    max_output_tokens: 128000    # thinking counts against it
+    concurrency: 8               # optional: the most attempts of this model at once
+    price: {input_per_mtok: 8.0, output_per_mtok: 40.0}     # optional; only used for cost figures
+    # estimate: {reasoning_tokens_first_call: 15000, reasoning_tokens_per_call: 4000}   # optional: what `estimate` assumes for this model
+    options:
+      auth: {type: api_key, env: MY_ANTHROPIC_KEY_VARIABLE}  # the NAME of the variable holding the key
+      # auth: {type: wif, org: research}                     # Workload Identity Federation from a Google Cloud machine:
+      #                                                      # no key, the ids are read from ~/.anthropic/wif-research.env
+  - name: haiku-5.5-default-effort
+    provider: anthropic
+    model: claude-haiku-5-5
+    family: claude
+    reasoning: {}                # nothing sent: the model's own default
+    price: {input_per_mtok: 0.10, output_per_mtok: 0.50}    # prompts over 100k tokens are billed 5x; not modelled
+    options: {auth: {type: api_key, env: MY_ANTHROPIC_KEY_VARIABLE}}
+    widths: [16, 32, 64, 128]    # optional: this model's own widths instead of the run's
+
+  # ---- OpenAI (Responses API).
+  - name: gpt-6.2-astra
+    provider: openai
+    model: gpt-6.2-astra
+    family: gpt
+    reasoning: {effort: max}     # the highest. A model that does not take a value answers HTTP 400 naming it
+    max_output_tokens: 128000
+    price: {input_per_mtok: 8.0, output_per_mtok: 40.0}
+    # options: {api_key_env: OPENAI_API_KEY}   # the default
+
+  # ---- Google (Gemini generateContent).
+  - name: gemini-4-carbon
+    provider: google
+    model: gemini-4-carbon
+    family: gemini
+    reasoning: {effort: high}    # the highest for carbon; neon and hydrogen go to xhigh
+    max_output_tokens: 65536     # the most one request returns
+    price: {input_per_mtok: 2.0, output_per_mtok: 10.0}
+    # options: {api_key_env: GEMINI_API_KEY}   # the default
+
+  # ---- Any endpoint that speaks /v1/chat/completions with tools: OpenRouter, local servers, other vendors.
+  #      This adapter has not been run against a live API.
+  - name: grok-4.7
+    provider: openai_compat
+    model: x-ai/grok-4.7
+    family: xai
+    reasoning: {effort: xhigh}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 2.0, output_per_mtok: 6.0}
+    options:
+      base_url: https://openrouter.ai/api/v1      # required: it must be obvious which endpoint a config talks to
+      api_key_env: OPENROUTER_API_KEY
+      stream_usage: false
+      extra_body: {provider: {require_parameters: true}}   # merged into the request body verbatim
+  # - name: local-model
+  #   provider: openai_compat
+  #   model: my-model
+  #   options: {base_url: "http://localhost:8000/v1"}       # a local server needs no key
+
+# Judges are model entries too. A judge's name identifies its settings: to change a judge, give it a new name.
+judges:
+  - name: fable-5.2-judge
+    provider: anthropic
+    model: claude-fable-5-2
+    family: claude
+    reasoning: {thinking: adaptive, effort: high}
+    max_output_tokens: 64000
+    price: {input_per_mtok: 8.0, output_per_mtok: 40.0}
+    options: {auth: {type: api_key, env: MY_ANTHROPIC_KEY_VARIABLE}}
+
+judge:
+  repeats: 3                     # judging calls per set, each with fresh random labels and order
+  max_per_call: 8                # more attempts than this in a set switches it to pairwise calls
+  # pairwise_repeats: 1          # calls per pair (default: repeats). The way to cut pairwise calls and keep every pair.
+  # pairs_per_attempt: 6         # each attempt meets about N opponents. Rank scores then depend on the draw: avoid for headlines.
+  peak_size: true                # also rank each model's own sizes of a painting against each other
+  # max_tokens: 32000            # overrides the judge entries' max_output_tokens
+
+# aside: [haiku-5.5-default-effort]   # models whose pictures are made and judged like the others, but left out of
+#                                     # every comparison when the scores are computed

@@ -1,0 +1,37 @@
+# The Great Wave: the wording given to the model, the grid heights, and where the reference image came from.
+slug: great-wave
+display_name: The Great Wave
+prompt:
+  title: Under the Wave off Kanagawa (often called The Great Wave)
+  artist: Katsushika Hokusai
+  date: about 1831
+  version_note: ''
+grid_heights:
+  16: 11
+  32: 22
+  64: 43
+  128: 86
+  256: 172
+public_domain:
+  made: about 1831
+  artist_died: 1849
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: The Metropolitan Museum of Art, New York
+  accession: JP1847 (Met object ID 45434)
+  source_page_url: https://www.metmuseum.org/art/collection/search/45434
+  download_url: https://images.metmuseum.org/CRDImages/as/original/DP130155.jpg
+  download_date: '2026-11-19'
+  licence_statement: The Met marks the work public domain and offers the image under its Open Access policy (CC0).
+  licence_url: https://creativecommons.org/publicdomain/zero/1.0/
+  credit: The Metropolitan Museum of Art, New York. H. O. Havemeyer Collection, Bequest of Mrs. H. O. Havemeyer, 1929
+    (JP1847). Open Access, CC0.
+  licence_caveat: ''
+  original_sha256: cbb9988f2f18b9180a1cc0cf5dbb0e3bbf8f2e85d17930cf6ca9ab36fac36303
+  original_pixel_size: [3859, 2594]
+  crop_box: [0, 0, 3857, 2592]
+  cropped_pixel_size: [3857, 2592]
+  height_over_width: 0.67202
+  reference_sha256: d7f7be85dae7967e0c1e05b0a4d118871e9b86b4233667f7c86dfcb4abe3d193
+  reference_pixel_size: [1024, 688]

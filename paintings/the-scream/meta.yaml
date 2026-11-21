@@ -1,0 +1,38 @@
+# The Scream: the wording given to the model, the grid heights, and where the reference image came from.
+slug: the-scream
+display_name: The Scream
+prompt:
+  title: The Scream
+  artist: Edvard Munch
+  date: '1893'
+  version_note: This is the 1893 painted version in the National Museum, Oslo.
+grid_heights:
+  16: 20
+  32: 40
+  64: 80
+  128: 159
+  256: 318
+public_domain:
+  made: '1893'
+  artist_died: 1944
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: Nasjonalmuseet for kunst, arkitektur og design (The National Museum of Art, Architecture and Design), Oslo - The Fine Art Collections
+  accession: NG.M.00939
+  source_page_url: https://www.nasjonalmuseet.no/en/collection/object/NG.M.00939
+  download_url: https://ms01.nasjonalmuseet.no/api/objects/download?filename=NG.M.00939.tif&size=full
+  download_date: '2026-11-19'
+  licence_statement: The National Museum, Oslo, states that the work has no known copyright restrictions and offers its
+    photograph under CC BY 4.0.
+  licence_url: https://creativecommons.org/licenses/by/4.0/
+  credit: 'Photo: Nasjonalmuseet / Børre Høstland. CC BY 4.0. The work itself has no known copyright restrictions.'
+  licence_caveat: "The photograph is CC BY 4.0: credit 'Photo: Nasjonalmuseet / Børre Høstland' is required wherever the
+    image is shown."
+  original_sha256: cb0833c6ff0e070e7f4bda2490521e6924b6f259f42765a1100ab7fab91377de
+  original_pixel_size: [3221, 4000]
+  crop_box: [5, 6, 3212, 3995]
+  cropped_pixel_size: [3207, 3989]
+  height_over_width: 1.24384
+  reference_sha256: 1df5504b1dc38dcade7be0855b87935baae6132abf536670a569eaead4f90256
+  reference_pixel_size: [823, 1024]

@@ -1,0 +1,57 @@
+# The whole pipeline with scripted stand-ins: no network, no API key, no cost.
+# Useful for seeing every file a run produces before spending anything.
+#
+# Run from the repository root:
+#   paintbench attempt --config configs/offline-demo.yaml
+#   paintbench judge   --run runs/offline-demo
+#   paintbench score   --run runs/offline-demo
+#   paintbench report  --run runs/offline-demo
+# (`--run offline-demo` means the same there: a bare run id is looked for under ./runs.)
+#
+# A relative `runs_dir` is relative to this file, not to where the command is
+# run, so `../runs` below is the repository's runs/ directory: the place the
+# commands above look in.
+#
+# The "models" here are scripts (provider: fake). Each types a striped picture
+# that the script makes up, so no picture file is needed. One types it with no
+# slip, one makes format faults, one stops early, one declines. The "judge"
+# ranks by a fixed order. Nothing here says anything about any real model.
+run_id: offline-demo
+runs_dir: ../runs
+encoding: palette
+paintings: [great-wave, the-scream]
+widths: [16, 32]
+repeats: 2
+
+models:
+  - name: scripted-plain
+    provider: fake
+    model: script
+    family: scripts
+  - name: scripted-with-faults
+    provider: fake
+    model: script
+    family: scripts
+    options:
+      faults: [{row: 3, kind: long}, {row: 7, kind: unknown}, {row: 9, kind: short}]
+  - name: scripted-stops-early
+    provider: fake
+    model: script
+    options: {stop_early: true}
+  - name: scripted-refusal
+    provider: fake
+    model: script
+    widths: [32]
+    options: {refuse: true}
+
+judges:
+  - name: scripted-judge
+    provider: fake
+    model: script
+    family: scripts
+    options:
+      behaviour: judge
+      order: [scripted-plain, scripted-with-faults, scripted-stops-early]
+
+judge:
+  repeats: 3

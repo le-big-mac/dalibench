@@ -1,0 +1,38 @@
+# Girl with a Pearl Earring: the wording given to the model, the grid heights, and where the reference image came from.
+slug: girl-with-a-pearl-earring
+display_name: Girl with a Pearl Earring
+prompt:
+  title: Girl with a Pearl Earring
+  artist: Johannes Vermeer
+  date: about 1665
+  version_note: ''
+grid_heights:
+  16: 19
+  32: 38
+  64: 76
+  128: 152
+  256: 303
+public_domain:
+  made: about 1665
+  artist_died: 1675
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: Mauritshuis, The Hague
+  accession: '670'
+  source_page_url: https://commons.wikimedia.org/wiki/File:Johannes_Vermeer_-_Girl_with_a_Pearl_Earring_-_670_-_Mauritshuis.jpg
+  download_url: https://upload.wikimedia.org/wikipedia/commons/e/e4/Johannes_Vermeer_-_Girl_with_a_Pearl_Earring_-_670_-_Mauritshuis.jpg
+  download_date: '2026-11-20'
+  licence_statement: Wikimedia Commons treats the image as public domain in the United States, as a faithful
+    reproduction of a public-domain work, and notes that reuse may be restricted elsewhere.
+  licence_url: https://creativecommons.org/publicdomain/mark/1.0/
+  credit: 'Mauritshuis, The Hague (inv. 670). Photo: Mauritshuis (Margareta Svensson). Image via Wikimedia Commons,
+    treated there as public domain (a faithful reproduction of a public-domain work).'
+  licence_caveat: ''
+  original_sha256: e02ca4e2ca5d3a0268dccb95051ff14645358966a766ed154be018780fc3b1d4
+  original_pixel_size: [5068, 6000]
+  crop_box: [0, 0, 5068, 6000]
+  cropped_pixel_size: [5068, 6000]
+  height_over_width: 1.1839
+  reference_sha256: fa667413cdc50e1381aa166d4ceba2e5117659b50dac13ae348c02127792027a
+  reference_pixel_size: [865, 1024]

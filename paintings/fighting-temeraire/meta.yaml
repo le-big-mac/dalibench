@@ -1,0 +1,40 @@
+# The Fighting Temeraire: the wording given to the model, the grid heights, and where the reference image came from.
+slug: fighting-temeraire
+display_name: The Fighting Temeraire
+prompt:
+  title: The Fighting Temeraire
+  artist: J. M. W. Turner
+  date: '1839'
+  version_note: ''
+grid_heights:
+  16: 12
+  32: 24
+  64: 48
+  128: 95
+  256: 190
+public_domain:
+  made: '1839'
+  artist_died: 1851
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: The National Gallery, London
+  accession: NG524
+  source_page_url: https://commons.wikimedia.org/wiki/File:Turner,_J._M._W._-_The_Fighting_T%C3%A9m%C3%A9raire_tugged_to_her_last_Berth_to_be_broken.jpg
+  download_url: https://upload.wikimedia.org/wikipedia/commons/9/94/Turner%2C_J._M._W._-_The_Fighting_T%C3%A9m%C3%A9raire_tugged_to_her_last_Berth_to_be_broken.jpg
+  download_date: '2026-11-20'
+  licence_statement: Wikimedia Commons treats the image as public domain in the United States, as a faithful
+    reproduction of a public-domain work, and notes that reuse may be restricted elsewhere.
+  licence_url: https://creativecommons.org/publicdomain/mark/1.0/
+  credit: 'The National Gallery, London (NG524). Photo: The National Gallery, London. Image via Wikimedia Commons,
+    treated there as public domain (a faithful reproduction of a public-domain work).'
+  licence_caveat: LICENCE DOUBT. The National Gallery claims copyright in this photograph, which is its own, and offers
+    it only under CC BY-NC-ND 4.0; Wikimedia Commons hosts it as public domain under its policy on faithful
+    reproductions. This repository follows Commons; anyone reusing the image should decide whether to do the same.
+  original_sha256: c2d93bced825a2b6bce93701281309cc07b95eaf946780c330e48fd2e0d05ca2
+  original_pixel_size: [6000, 4455]
+  crop_box: [0, 0, 6000, 4455]
+  cropped_pixel_size: [6000, 4455]
+  height_over_width: 0.7425
+  reference_sha256: 843e4501c13478822caceaa25ed18cbea00970b428da061165c7d9dc701c565f
+  reference_pixel_size: [1024, 760]

@@ -1,0 +1,36 @@
+# Red Fuji: the wording given to the model, the grid heights, and where the reference image came from.
+slug: red-fuji
+display_name: Red Fuji
+prompt:
+  title: Fine Wind, Clear Morning (often called Red Fuji)
+  artist: Katsushika Hokusai
+  date: about 1831
+  version_note: ''
+grid_heights:
+  16: 11
+  32: 22
+  64: 43
+  128: 86
+  256: 172
+public_domain:
+  made: about 1831
+  artist_died: 1849
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: The Metropolitan Museum of Art, New York
+  accession: JP2568 (Met object ID 57007; image file DP140971)
+  source_page_url: https://www.metmuseum.org/art/collection/search/57007
+  download_url: https://images.metmuseum.org/CRDImages/as/original/DP140971.jpg
+  download_date: '2026-11-20'
+  licence_statement: The Met marks the work public domain and offers the image under its Open Access policy (CC0).
+  licence_url: https://creativecommons.org/publicdomain/zero/1.0/
+  credit: The Metropolitan Museum of Art, New York (JP2568). Open Access, public domain.
+  licence_caveat: ''
+  original_sha256: 127e7dda09f0f0fd04cc1f97d02ee35ffea4c3d0c62051167b599c3a387db92d
+  original_pixel_size: [3979, 2743]
+  crop_box: [112, 105, 3876, 2640]
+  cropped_pixel_size: [3764, 2535]
+  height_over_width: 0.67349
+  reference_sha256: 0513150773b3ec86c74956302a293e797b3ad589610345f2786a70c67fbce4b1
+  reference_pixel_size: [1024, 690]

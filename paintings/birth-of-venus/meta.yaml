@@ -1,0 +1,38 @@
+# The Birth of Venus: the wording given to the model, the grid heights, and where the reference image came from.
+slug: birth-of-venus
+display_name: The Birth of Venus
+prompt:
+  title: The Birth of Venus
+  artist: Sandro Botticelli
+  date: about 1485
+  version_note: ''
+grid_heights:
+  16: 10
+  32: 20
+  64: 40
+  128: 80
+  256: 160
+public_domain:
+  made: about 1485
+  artist_died: 1510
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: Gallerie degli Uffizi (The Uffizi), Florence
+  accession: Inventory 1890 n. 878
+  source_page_url: https://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg
+  download_url: https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/3840px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg
+  download_date: '2026-11-19'
+  licence_statement: Wikimedia Commons treats the image as public domain in the United States, as a faithful
+    reproduction of a public-domain work, and notes that reuse may be restricted elsewhere.
+  licence_url: https://creativecommons.org/publicdomain/mark/1.0/
+  credit: 'Gallerie degli Uffizi, Florence (inv. 1890 n. 878). Image: Google Art Project via Wikimedia Commons, public
+    domain.'
+  licence_caveat: Italian cultural-heritage rules may restrict commercial reproduction.
+  original_sha256: 5d4adff5648406809dda66b29cba8bb2c619b7019d4440ce815a83c5bd2e1e96
+  original_pixel_size: [3840, 2412]
+  crop_box: [6, 8, 3837, 2407]
+  cropped_pixel_size: [3831, 2399]
+  height_over_width: 0.62621
+  reference_sha256: fc98956a85be9a89a592abdfc1a2ea3c96ebd699c5da53cdea780a126cadb480
+  reference_pixel_size: [1024, 641]

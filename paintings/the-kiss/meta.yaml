@@ -1,0 +1,39 @@
+# The Kiss: the wording given to the model, the grid heights, and where the reference image came from.
+slug: the-kiss
+display_name: The Kiss
+prompt:
+  title: The Kiss
+  artist: Gustav Klimt
+  date: 1907 to 1908
+  version_note: ''
+grid_heights:
+  16: 16
+  32: 32
+  64: 65
+  128: 130
+  256: 259
+public_domain:
+  made: 1907 to 1909
+  artist_died: 1918
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: Österreichische Galerie Belvedere (Belvedere, Wien), Vienna; on view in the Upper Belvedere
+  accession: Inv.-Nr. 912 (Belvedere object ID 6678; Wikidata Q698487)
+  source_page_url: https://commons.wikimedia.org/wiki/File:Gustav_Klimt_-_Der_Kuss_(Liebespaar)_-_912_-_%C3%96sterreichische_Galerie_Belvedere.jpg
+  download_url: https://upload.wikimedia.org/wikipedia/commons/6/60/Gustav_Klimt_-_Der_Kuss_%28Liebespaar%29_-_912_-_%C3%96sterreichische_Galerie_Belvedere.jpg
+  download_date: '2026-11-20'
+  licence_statement: The Belvedere released this photograph under CC BY-SA 4.0, and Wikimedia Commons hosts it under
+    that licence and marks the painting itself public domain.
+  licence_url: https://creativecommons.org/licenses/by-sa/4.0/
+  credit: 'Gustav Klimt, Der Kuss (Liebespaar), Belvedere, Wien, Inv.-Nr. 912. Photo: © Belvedere, Wien, CC BY-SA 4.0
+    (https://creativecommons.org/licenses/by-sa/4.0/). Cropped and resized here, same licence.'
+  licence_caveat: 'The photograph is CC BY-SA 4.0: credit is required and the cropped, resized reference must be shared
+    under the same licence.'
+  original_sha256: a8169d722e8554817d8e72732f3e007f1ec3e01ce065a873dec5f333c0bf00ea
+  original_pixel_size: [3457, 3508]
+  crop_box: [0, 6, 3457, 3508]
+  cropped_pixel_size: [3457, 3502]
+  height_over_width: 1.01302
+  reference_sha256: ba96468da1aaa7061e01389fce607d984ff77f52e517ed996c4691d557d45275
+  reference_pixel_size: [1011, 1024]

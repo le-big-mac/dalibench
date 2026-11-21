@@ -1,0 +1,37 @@
+# Water Lilies (1906): the wording given to the model, the grid heights, and where the reference image came from.
+slug: water-lilies-1906
+display_name: Water Lilies (1906)
+prompt:
+  title: Water Lilies
+  artist: Claude Monet
+  date: '1906'
+  version_note: This is the 1906 painting in the Art Institute of Chicago, one of a series of about 250.
+grid_heights:
+  16: 15
+  32: 31
+  64: 61
+  128: 123
+  256: 246
+public_domain:
+  made: '1906'
+  artist_died: 1926
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: The Art Institute of Chicago
+  accession: 1933.1157 (Art Institute artwork ID 16568; IIIF image ID 3c27b499-af56-f0d5-93b5-a7f2f1ad5813)
+  source_page_url: https://www.artic.edu/artworks/16568/water-lilies
+  download_url: https://www.artic.edu/iiif/2/3c27b499-af56-f0d5-93b5-a7f2f1ad5813/full/!3000,3000/0/default.jpg
+  download_date: '2026-11-20'
+  licence_statement: The Art Institute of Chicago offers the image under CC0 (its CC0 Public Domain Designation), free
+    to use for any purpose without permission.
+  licence_url: https://creativecommons.org/publicdomain/zero/1.0/
+  credit: Claude Monet. Water Lilies, 1906. The Art Institute of Chicago (1933.1157). CC0.
+  licence_caveat: ''
+  original_sha256: b61a1c384193a4bec03de96b839dfdae492433a13067b89a1c31eaaabc50decb
+  original_pixel_size: [3000, 2881]
+  crop_box: [0, 0, 3000, 2881]
+  cropped_pixel_size: [3000, 2881]
+  height_over_width: 0.96033
+  reference_sha256: a63579a4a8d5913609376a6bb1bba55314935b9292145758a9a541aeb60a0355
+  reference_pixel_size: [1024, 983]

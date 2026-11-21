@@ -1,0 +1,40 @@
+# Wanderer above the Sea of Fog: the wording given to the model, the grid heights, and where the reference image came from.
+slug: wanderer-above-the-sea-of-fog
+display_name: Wanderer above the Sea of Fog
+prompt:
+  title: Wanderer above the Sea of Fog
+  artist: Caspar David Friedrich
+  date: about 1818
+  version_note: ''
+grid_heights:
+  16: 20
+  32: 40
+  64: 81
+  128: 162
+  256: 324
+public_domain:
+  made: about 1818
+  artist_died: 1840
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: Hamburger Kunsthalle, Hamburg (Dauerleihgabe der Stiftung Hamburger Kunstsammlungen)
+  accession: HK-5161
+  source_page_url: https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg
+  download_url: https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg/3840px-Caspar_David_Friedrich_-_Wanderer_above_the_Sea_of_Fog.jpeg
+  download_date: '2026-11-20'
+  licence_statement: Wikimedia Commons treats the image as public domain in the United States, as a faithful
+    reproduction of a public-domain work, and notes that reuse may be restricted elsewhere.
+  licence_url: https://creativecommons.org/publicdomain/mark/1.0/
+  credit: 'Hamburger Kunsthalle (HK-5161), permanent loan of the Stiftung Hamburger Kunstsammlungen. Photo: Elke
+    Walford. Image via Wikimedia Commons, treated there as public domain.'
+  licence_caveat: "LICENCE DOUBT. The image appears to be the Hamburger Kunsthalle's own photograph, in which the museum
+    claims copyright ('© SHK / Hamburger Kunsthalle / ARTOTHEK, Foto: Elke Walford'); Wikimedia Commons hosts it as
+    public domain under its policy on faithful reproductions. No statement from the museum permitting reuse was found."
+  original_sha256: 636a33af2c881c1d01c6946f679df661b87ad4d7138461322839427198d7bf7a
+  original_pixel_size: [3840, 4926]
+  crop_box: [18, 58, 3828, 4880]
+  cropped_pixel_size: [3810, 4822]
+  height_over_width: 1.26562
+  reference_sha256: 86f8f924fd4358d097186f507fcbb69895d2476c1b93f0516d04c2faf26e47a3
+  reference_pixel_size: [809, 1024]

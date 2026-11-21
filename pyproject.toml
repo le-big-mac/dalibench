@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paintbench"
+version = "0.1.0"
+description = "DaliBench: language models paint famous artworks from memory, using only text"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "pillow>=10",
+    "pyyaml>=6",
+]
+
+[project.optional-dependencies]
+# One extra per API family, so the core (canvas, render, score, report) installs without any SDK.
+# The adapters were written and mock-tested against anthropic 0.121.0, openai 2.53.0 and
+# google-genai 2.17.0. The upper bounds keep a fresh install on the same major line: the next
+# major of each SDK changes behaviour the adapters rely on (see docs/provider-notes/).
+anthropic = ["anthropic>=0.121,<1", "google-auth>=2", "requests>=2"]
+openai = ["openai>=2.53,<3"]
+google = ["google-genai>=2.17,<3"]
+all = ["paintbench[anthropic,openai,google]"]
+dev = ["paintbench[all]", "pytest>=8", "httpx>=0.28"]
+
+[project.urls]
+Homepage = "https://le-big-mac.github.io/dalibench/"
+Repository = "https://github.com/le-big-mac/dalibench"
+
+[project.scripts]
+paintbench = "paintbench.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["paintbench*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

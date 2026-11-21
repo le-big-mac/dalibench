@@ -1,0 +1,44 @@
+# The Persistence of Memory: the wording given to the model, the grid heights, and where the reference image came from.
+# In copyright, so the public repository leaves the image out: python scripts/fetch_originals.py persistence-of-memory fetches it.
+# public_domain has no artist_died key on purpose: a year there would mark the work as in the public domain.
+slug: persistence-of-memory
+display_name: The Persistence of Memory
+prompt:
+  title: The Persistence of Memory
+  artist: Salvador Dalí
+  date: '1931'
+  version_note: ''
+grid_heights:
+  16: 12
+  32: 23
+  64: 46
+  128: 93
+  256: 185
+public_domain:
+  in_public_domain: false
+  made: '1931'
+  artist_death_year: 1989
+  status: 'Not in the public domain: made in 1931, by an artist who died in 1989.'
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: The Museum of Modern Art, New York
+  accession: '162.1934'
+  source_page_url: https://www.moma.org/collection/works/79018
+  download_url: https://www.moma.org/media/W1siZiIsIjYxOTY1OSJdLFsicCIsImNvbnZlcnQiLCItcmVzaXplIDEwMjR4MTAyNFx1MDAzZSJdXQ.jpg?sha=7e2e6d3c2cc1aec0
+  download_date: '2026-11-20'
+  licence_statement: The work is in copyright and the image has no licence; MoMA licenses images of works in its
+    collection through Art Resource (North America) and Scala Archives (elsewhere).
+  licence_url: ''
+  credit: The Museum of Modern Art, New York (162.1934), given anonymously. © Salvador Dalí, Gala-Salvador Dalí
+    Foundation / Artists Rights Society (ARS), New York.
+  licence_caveat: "LICENCE DOUBT. The painting is in copyright (Salvador Dalí died in 1989) and so is this image of it,
+    which is MoMA's own photograph; no licence was sought or given. This repository does not carry the image:
+    scripts/fetch_originals.py downloads it from the museum."
+  original_sha256: d95cbc14e23df4470606a52a6d9ae5ebe9c1565cf5ed469837be88ccbc69cd47
+  original_pixel_size: [1024, 740]
+  crop_box: [0, 0, 1024, 740]
+  cropped_pixel_size: [1024, 740]
+  height_over_width: 0.72266
+  reference_sha256: 5c8074fc11e04f0cd63bfd5140bbbf6b79d13eaf4ed8ad71b69a7b376f8369a1
+  reference_pixel_size: [1024, 740]

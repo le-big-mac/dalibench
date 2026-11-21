@@ -1,0 +1,38 @@
+# The Starry Night: the wording given to the model, the grid heights, and where the reference image came from.
+slug: starry-night
+display_name: The Starry Night
+prompt:
+  title: The Starry Night
+  artist: Vincent van Gogh
+  date: '1889'
+  version_note: ''
+grid_heights:
+  16: 13
+  32: 25
+  64: 51
+  128: 101
+  256: 202
+public_domain:
+  made: '1889'
+  artist_died: 1890
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: The Museum of Modern Art, New York
+  accession: '472.1941'
+  source_page_url: https://commons.wikimedia.org/wiki/File:Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg
+  download_url: https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/3840px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg
+  download_date: '2026-11-20'
+  licence_statement: Wikimedia Commons treats the image as public domain in the United States, as a faithful
+    reproduction of a public-domain work, and notes that reuse may be restricted elsewhere.
+  licence_url: https://creativecommons.org/publicdomain/mark/1.0/
+  credit: 'The Museum of Modern Art, New York (472.1941). Scan: Google Art Project. Image via Wikimedia Commons, treated
+    there as public domain (a faithful reproduction of a public-domain work).'
+  licence_caveat: ''
+  original_sha256: 755176d5737a0fa6a1f90f15d066114915805fe05b5e28693dea8d9499aef464
+  original_pixel_size: [3840, 3041]
+  crop_box: [3, 3, 3840, 3035]
+  cropped_pixel_size: [3837, 3032]
+  height_over_width: 0.7902
+  reference_sha256: 2f9333f58045b962ee0775dfeb62e06461baf9519efc20a18091b93e8a90cc1f
+  reference_pixel_size: [1024, 809]

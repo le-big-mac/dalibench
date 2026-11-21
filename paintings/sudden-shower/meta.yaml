@@ -1,0 +1,36 @@
+# Sudden Shower over Shin-Ōhashi Bridge: the wording given to the model, the grid heights, and where the reference image came from.
+slug: sudden-shower
+display_name: Sudden Shower over Shin-Ōhashi Bridge
+prompt:
+  title: Sudden Shower over Shin-Ōhashi Bridge and Atake
+  artist: Utagawa Hiroshige
+  date: '1857'
+  version_note: ''
+grid_heights:
+  16: 25
+  32: 49
+  64: 98
+  128: 196
+  256: 393
+public_domain:
+  made: '1857'
+  artist_died: 1858
+reference:
+  file: reference.png
+  original_file: original.jpg
+  holder: The Metropolitan Museum of Art, New York
+  accession: JP644
+  source_page_url: https://www.metmuseum.org/art/collection/search/37094
+  download_url: https://images.metmuseum.org/CRDImages/as/original/DP121526.jpg
+  download_date: '2026-11-20'
+  licence_statement: The Met marks the work public domain and offers the image under its Open Access policy (CC0).
+  licence_url: https://creativecommons.org/publicdomain/zero/1.0/
+  credit: The Metropolitan Museum of Art, New York (JP644). Open Access, public domain.
+  licence_caveat: ''
+  original_sha256: 7fcdc8b4d415a87c968b068e43b18eaffcff7ff77566b9fe983f12c3a6c61f07
+  original_pixel_size: [2562, 3806]
+  crop_box: [185, 268, 2391, 3653]
+  cropped_pixel_size: [2206, 3385]
+  height_over_width: 1.53445
+  reference_sha256: 9e9474327502b8e85085307c0f39a9cd891e41ef33b0f9c15e7962f4578d989c
+  reference_pixel_size: [667, 1024]

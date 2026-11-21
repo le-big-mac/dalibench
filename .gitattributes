@@ -1,0 +1,4 @@
+# Not part of the repository: the museum photographs the reference images were made from (large;
+# scripts/fetch_originals.py downloads them), and the one reference image that is in copyright.
+paintings/*/original.jpg export-ignore
+paintings/persistence-of-memory/reference.png export-ignore
