@@ -9,9 +9,9 @@ Can language models paint famous artworks from memory, using only text?
 ## How it works
 
 1. We give the model only the title, artist, and date of the painting, as text.
-2. It selects a color palette, one character per color defined by RGB values, and then types the picture row by row, one character per pixel, by calling a tool. The tool only checks that each row has the right length.
+2. It selects its own colour palette, one character per colour defined by RGB values, and then types the picture row by row, one character per pixel, by calling a tool. The tool only checks that each row has the right length.
 3. We repeat this at 16, 32, 64, and 128 cells wide, starting from scratch each time.
-4. A judge sees the original and every finished picture of it, unlabeled and shuffled, and ranks them: two judges, three times each.
+4. A judge sees the original and every finished picture of it, unlabelled and shuffled, and ranks them: two judges, three times each.
 
 The exact prompts, the judging protocol, and the scoring are in [docs/method.md](docs/method.md).
 
@@ -103,7 +103,7 @@ To add a painting, copy an existing painting's directory under `paintings/`, put
 
 ## Reference images
 
-Each painting's directory holds the image the judges see (`reference.png`, longest side 1,024 pixels) and a `meta.yaml` with its source, license, and credit line. The Persistence of Memory is in copyright, so its image is not in the repository: `scripts/fetch_originals.py` downloads it from the museum. The same script fetches the full-size photographs of the other paintings, which are only needed to rebuild a reference image.
+Each painting's directory holds the image the judges see (`reference.png`, longest side 1,024 pixels) and a `meta.yaml` with its source, licence, and credit line. The Persistence of Memory is in copyright, so its image is not in the repository: `scripts/fetch_originals.py` downloads it from the museum. The same script fetches the full-size photographs of the other paintings, which are only needed to rebuild a reference image.
 
 Three of the photographs (The Fighting Temeraire, Sunflowers, and Wanderer above the Sea of Fog) are used on Wikimedia Commons' position that a faithful photograph of a public-domain painting carries no copyright of its own; the museums that took them say otherwise. Their records say so.
 
@@ -123,6 +123,6 @@ About 130 tests, which run in a few seconds. None of them touches the network.
 - [PixelBench](https://arxiv.org/abs/2611.20628), Hong et al.: pixel art drawn by writing programs, up to 256 pixels wide.
 - [How Does A Blind Model See The Earth?](https://outsidetext.substack.com/p/how-does-a-blind-model-see-the-earth), henry: a world map, from asking point by point whether it is land or water.
 
-## License
+## Licence
 
 The code is under the MIT License. The reference images under `paintings/` are not: each keeps the terms of its source, recorded in its `meta.yaml`.

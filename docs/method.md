@@ -53,7 +53,7 @@ An attempt ends in one of four states: complete (every row stored), incomplete (
 
 ## Judging
 
-A set is every complete picture of one painting at one width. A judge gets one message: the real painting, labeled REFERENCE, then the pictures, each drawn as solid squares at the same display size, under random letters and in random order. The letters and the order are drawn afresh for every call. The judge is asked to rank them "the way a person who knows the painting well would judge them", taking into account what is in the picture, where each thing is, its shape, and the colors, with no ties.
+A set is every complete picture of one painting at one width. A judge gets one message: the real painting, labelled REFERENCE, then the pictures, each drawn as solid squares at the same display size, under random letters and in random order. The letters and the order are drawn afresh for every call. The judge is asked to rank them "the way a person who knows the painting well would judge them", taking into account what is in the picture, where each thing is, its shape, and the colours, with no ties.
 
 The reply must follow a fixed form, and it is parsed strictly. A reply that does not parse is asked for once more, and is never guessed at.
 
@@ -64,7 +64,7 @@ A second kind of call ranks one model's own pictures of a painting, at every wid
 ## Scoring
 
 - **Rank score.** For a model in a set: the share of its comparisons with other models' pictures that it won, pooled over judges and repeats. With one picture per model this is its mean rank, scaled so that 1 is always first and 0 always last.
-- **Standings at each width.** A model's figure at a width is its comparisons won over its comparisons made, pooled over the sets at that width. Each figure has a 95% interval from resampling the paintings, and two neighbors whose order the resampling does not separate share a place. The interval says how far a figure depends on the choice of paintings. It does not include the variation between attempts.
+- **Standings at each width.** A model's figure at a width is its comparisons won over its comparisons made, pooled over the sets at that width. Each figure has a 95% interval from resampling the paintings, and two neighbours whose order the resampling does not separate share a place. The interval says how far a figure depends on the choice of paintings. It does not include the variation between attempts.
 - **No overall rating.** Larger grids separate the models more, and a model's standing can change with the size, so the largest width leads. The mean over all sizes is kept as a secondary table.
 - **A missing picture** counts as nothing for its model, and is not a loss. The set still counts for the others.
 - **Entries kept apart.** An entry named under `aside` in the config has its pictures taken out of every ranking before scoring. The published run keeps Haiku 5.5 at its default effort apart, since the other entries ran at their highest.
@@ -74,9 +74,9 @@ Formulas that compare pixels with the reference are not used.
 
 ## How far to trust the judges
 
-A person ranked twelve blind sheets of seven pictures, from two earlier runs of Claude models only. Kendall's tau between their order and a judge's averaged order was 0.83 on average, the same for both judges. Scored from the person's rankings alone, the models came out in the same order as from the judges. On this evidence (one person, twelve sheets, Claude pictures only) the judges track a person's order of models over many sets. It does not support the order of close neighbors within one set.
+A person ranked twelve blind sheets of seven pictures, from two earlier runs of Claude models only. Kendall's tau between their order and a judge's averaged order was 0.83 on average, the same for both judges. Scored from the person's rankings alone, the models came out in the same order as from the judges. On this evidence (one person, twelve sheets, Claude pictures only) the judges track a person's order of models over many sets. It does not support the order of close neighbours within one set.
 
-No person has yet ranked sheets from the published run, which adds pictures by GPT and Gemini models. Both judges are Claude models, and with no judge from another family, whether they favor Claude pictures cannot be measured here.
+No person has yet ranked sheets from the published run, which adds pictures by GPT and Gemini models. Both judges are Claude models, and with no judge from another family, whether they favour Claude pictures cannot be measured here.
 
 In the published run the two judges' averaged orders of a set agree at tau 0.88, about as well as one judge's own repeats agree with each other (0.85). Each judge scores its own model within 0.01 of what the other judge gives it.
 
