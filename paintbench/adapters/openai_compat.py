@@ -4,8 +4,8 @@ OpenRouter first, also local servers (vLLM, Ollama, llama.cpp, LM Studio) and
 other vendors' OpenAI-compatible endpoints. Written from
 docs/provider-notes/openai_compat.md against the `openai` SDK 2.53.0; the
 section numbers below are sections of those notes. Not for api.openai.com with
-tools (11.1): use the `openai` adapter there. It has not been run against a
-live API; the tests use a mocked transport.
+tools (11.1): use the `openai` adapter there. It was run live through
+OpenRouter on 23 November 2026; the tests use a mocked transport.
 
 Settings
 --------

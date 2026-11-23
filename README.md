@@ -4,7 +4,7 @@ Can language models paint famous artworks from memory, using only text?
 
 **[See every picture, the results, and rank a set yourself](https://le-big-mac.github.io/dalibench/)**
 
-![The Great Wave at 128 cells wide: the original, then seven models' pictures in the judges' order](docs/great-wave-128.png)
+![The Great Wave at 128 cells wide: the original, then nine models' pictures in the judges' order](docs/great-wave-128.png)
 
 ## How it works
 
@@ -17,27 +17,29 @@ The exact prompts, the judging protocol, and the scoring are in [docs/method.md]
 
 ## Results
 
-Sixteen paintings, eight models at their highest reasoning effort, one attempt per painting and size. We choose 128 as the headline number, as it's where the capability difference between models is most visible.
+Sixteen paintings, ten models at their highest reasoning effort, one attempt per painting and size. We choose 128 as the headline number, as it's where the capability difference between models is most visible.
 
 | | Model | Rank score at 128 wide |
 | --- | --- | --- |
-| 1 | Fable 5.2 | 0.87 |
-| 2 | GPT-6.2 Astra | 0.85 |
-| 3 | Gemini 4 Carbon | 0.64 |
-| 4 | Opus 5.5 | 0.56 |
-| 5 | Fable 5 | 0.50 |
-| 6 | Sonnet 5.5 | 0.37 |
-| 7 | Haiku 5.5 | 0.09 |
-| 8 | Sonnet 5 | 0.09 |
+| 1 | Fable 5.2 | 0.90 |
+| 2 | GPT-6.2 Astra | 0.89 |
+| 3 | Gemini 4 Carbon | 0.71 |
+| 4 | Opus 5.5 | 0.67 |
+| 5 | Fable 5 | 0.60 |
+| 6 | Sonnet 5.5 | 0.52 |
+| 7 | GLM 5.3 | 0.29 |
+| 8 | Haiku 5.5 | 0.20 |
+| 9 | Sonnet 5 | 0.19 |
+| 10 | Inkling 2 Small | 0.06 |
 
-Rank score: how often a model's pictures beat the others at this size (0 never, 1 always). The top two are not separated at this size, and nor are the bottom two. The lead changes with the size: Gemini 4 Carbon is ahead at 16 wide, and GPT-6.2 Astra at 32 and 64. The other sizes, the cost and time per picture, and the pictures themselves are on [the site](https://le-big-mac.github.io/dalibench/); the run's transcripts and judgements are not in this repository.
+Rank score: how often a model's pictures beat the others at this size (0 never, 1 always). The top two are not separated at this size, and nor are the third and fourth, or the eighth and ninth. The lead changes with the size: Gemini 4 Carbon is ahead at 16 wide, and GPT-6.2 Astra at 32 and 64. GLM 5.3 is text only: it had [no multimodal training](https://docs.z.ai/guides/transparency). The other sizes, the cost and time per picture, and the pictures themselves are on [the site](https://le-big-mac.github.io/dalibench/); the run's transcripts and judgements are not in this repository.
 
 Four things to keep in mind:
 
 - Both judges are Claude models that also compete (Fable 5.2 and Opus 5.5).
 - Each model made one attempt per painting and size, so the variation between attempts is not measured.
 - A rank score is a standing against the other models in the same run, not an absolute measure.
-- At 128 wide the provider blocked eleven attempts by Claude models, which have no picture. Those models are scored on fewer than sixteen paintings there, and a missing picture is not counted as a loss.
+- At 128 wide the provider blocked eleven attempts by Claude models, and two more attempts did not finish (one each by GLM 5.3 and Sonnet 5). Those models are scored on fewer than sixteen paintings there, and a missing picture is not counted as a loss.
 
 ## Install
 
@@ -64,7 +66,7 @@ paintbench report  --run offline-demo     # writes runs/offline-demo/report/inde
 
 ## Run it
 
-`configs/dalibench.yaml` is the full run. It reads the API keys from `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, and `GEMINI_API_KEY`.
+`configs/dalibench.yaml` is the full run. It reads the API keys from `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, `GEMINI_API_KEY`, and `OPENROUTER_API_KEY` (GLM 5.3 and Inkling 2 Small are called through OpenRouter).
 
 ```sh
 python scripts/fetch_originals.py persistence-of-memory   # the one reference image the repository does not carry
@@ -97,7 +99,7 @@ Everything is resumable: work already on disk is not repeated. `attempt` and `ju
 
 ## Add a model or a painting
 
-A run is one config file; `configs/example.yaml` shows every key. To add a model, copy an entry under `models`. There are adapters for Anthropic, OpenAI (the Responses API), Google, and any OpenAI-compatible endpoint (the last has not been run against a live API).
+A run is one config file; `configs/example.yaml` shows every key. To add a model, copy an entry under `models`. There are adapters for Anthropic, OpenAI (the Responses API), Google, and any OpenAI-compatible endpoint.
 
 To add a painting, copy an existing painting's directory under `paintings/`, put the museum's photograph in it as `original.jpg`, and edit `meta.yaml` (the wording given to the model, the crop, and the source). Then run `paintbench reference <slug>`, replace the copied hashes, sizes, and grid heights in `meta.yaml` with the ones it prints, and name the painting in a config.
 

@@ -59,7 +59,7 @@ def test_aside_is_read_kept_in_the_saved_config_and_names_only_models_of_the_run
 def test_dalibench_yaml_holds_the_conditions_of_the_full_run():
     cfg = RunConfig.from_file(ROOT / "configs" / "dalibench.yaml")
     assert (cfg.run_id, cfg.encoding, cfg.prompt_version, cfg.repeats, cfg.strip) == ("dalibench", "palette", "A5", 1, 16)
-    assert len(cfg.paintings) == 16 and cfg.widths == [16, 32, 64, 128] and len(cfg.attempt_jobs()) == 9 * 16 * 4
+    assert len(cfg.paintings) == 16 and cfg.widths == [16, 32, 64, 128] and len(cfg.attempt_jobs()) == 11 * 16 * 4
     assert cfg.limits == Limits(max_steps=40, max_minutes=180, max_nudges=3)
     highest = {"thinking": "adaptive", "effort": "max", "display": "summarized"}
     assert [(m.name, m.provider, m.model, m.reasoning, m.max_output_tokens) for m in cfg.models] == [
@@ -72,10 +72,12 @@ def test_dalibench_yaml_holds_the_conditions_of_the_full_run():
         ("haiku-5.5-default-effort", "anthropic", "claude-haiku-5-5", {}, 128000),
         ("gemini-4-carbon", "google", "gemini-4-carbon", {"effort": "high"}, 65536),
         ("gpt-6.2-astra", "openai", "gpt-6.2-astra", {"effort": "max"}, 128000),
+        ("glm-5.3", "openai_compat", "z-ai/glm-5.3", {"effort": "max"}, 128000),
+        ("inkling-2-small", "openai_compat", "thinkingmachines/inkling-2-small", {"effort": "max"}, 128000),
     ]
     assert cfg.aside == ["haiku-5.5-default-effort"]
     assert [(j.name, j.provider, j.model, j.reasoning, j.max_output_tokens) for j in cfg.judges] == [
         ("fable-5.2-judge", "anthropic", "claude-fable-5-2", {"thinking": "adaptive", "effort": "high"}, 64000),
         ("opus-5.5-judge", "anthropic", "claude-opus-5-5", {"thinking": "adaptive", "effort": "high"}, 64000),
     ]
-    assert cfg.judge == JudgeConfig(repeats=3, max_per_call=9, peak_size=True)  # a painting's nine pictures in one ranking call
+    assert cfg.judge == JudgeConfig(repeats=3, max_per_call=12, peak_size=True)  # a painting's pictures, up to eleven, in one ranking call

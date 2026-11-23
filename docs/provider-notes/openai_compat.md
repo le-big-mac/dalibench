@@ -4,7 +4,7 @@ Researched 2026-11-19 and 2026-11-20 (UTC). No model/inference endpoint was call
 The only non-documentation HTTP request was an unauthenticated `GET https://openrouter.ai/api/v1/models`
 (OpenRouter's public model catalog: ids, prices, limits, supported parameters; it runs no model).
 
-The adapter written from these notes has not been run against a live API. It is tested against mocked responses
+The adapter written from these notes was run live through OpenRouter on 23 November 2026 (GLM 5.3 on Z.ai's endpoint, Inkling 2 Small on Modal's, Inkling 2 Mini on Io Net's). It is tested against mocked responses
 only, so everything here is what the documentation and the SDK source say, not what a server was seen to do.
 
 Target: any server that speaks `POST {base_url}/chat/completions` with tools. OpenRouter first; also vLLM, Ollama,

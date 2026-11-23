@@ -82,7 +82,7 @@ models:
     # options: {api_key_env: GEMINI_API_KEY}   # the default
 
   # ---- Any endpoint that speaks /v1/chat/completions with tools: OpenRouter, local servers, other vendors.
-  #      This adapter has not been run against a live API.
+  #      Run live through OpenRouter on 23 November 2026 (GLM 5.3, Inkling 2 Small); pin one provider, as configs/dalibench.yaml does.
   - name: grok-4.7
     provider: openai_compat
     model: x-ai/grok-4.7

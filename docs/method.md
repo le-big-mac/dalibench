@@ -47,7 +47,7 @@ A second encoding, `value`, has no palette: every cell is typed as six hex digit
 
 ## An attempt
 
-The harness calls the model until every row is stored. If a reply ends before that, the model is told that the picture is not finished, at most three times. The published run allowed 40 model calls and 180 minutes per attempt.
+The harness calls the model until every row is stored. If a reply ends before that, the model is told that the picture is not finished, at most three times. The published run allowed 40 model calls and 180 minutes per attempt. GLM 5.3 and Inkling 2 Small were called through OpenRouter, each pinned to one provider (Z.ai and Modal).
 
 An attempt ends in one of four states: complete (every row stored), incomplete (a limit was reached), refused (the model declined, or the provider blocked the request), or error (the API failed after retries). Only complete pictures are judged. A blocked request is sent again only when asked for (`--retry-refused`); the published run sent each one again up to twice.
 
@@ -76,15 +76,15 @@ Formulas that compare pixels with the reference are not used.
 
 A person ranked twelve blind sheets of seven pictures, from two earlier runs of Claude models only. Kendall's tau between their order and a judge's averaged order was 0.83 on average, the same for both judges. Scored from the person's rankings alone, the models came out in the same order as from the judges. On this evidence (one person, twelve sheets, Claude pictures only) the judges track a person's order of models over many sets. It does not support the order of close neighbours within one set.
 
-No person has yet ranked sheets from the published run, which adds pictures by GPT and Gemini models. Both judges are Claude models, and with no judge from another family, whether they favour Claude pictures cannot be measured here.
+No person has yet ranked sheets from the published run, which adds pictures by GPT, Gemini, GLM, and Inkling models. Both judges are Claude models, and with no judge from another family, whether they favour Claude pictures cannot be measured here.
 
-In the published run the two judges' averaged orders of a set agree at tau 0.88, about as well as one judge's own repeats agree with each other (0.85). Each judge scores its own model within 0.01 of what the other judge gives it.
+In the published run the two judges' averaged orders of a set agree at tau 0.89, about as well as one judge's own repeats agree with each other (0.86). Each judge scores its own model within 0.02 of what the other judge gives it.
 
 ## Known limits
 
 - One attempt per model, painting, and width.
 - A rank score is relative to the other pictures in the same run. Figures from two runs cannot be compared.
-- Some requests are blocked by the provider. In the published run eleven attempts, all by Claude models at 128 wide, were blocked on each of three tries and have no picture, which is why some models are scored on fewer than sixteen paintings at that width. Claude Opus 5 was blocked on every request, so it is not in the run.
+- Some requests are blocked by the provider. In the published run eleven attempts, all by Claude models at 128 wide, were blocked on each of three tries and have no picture. Two more attempts at that width did not finish (one each by GLM 5.3 and Sonnet 5). That is why some models are scored on fewer than sixteen paintings there. Claude Opus 5 was blocked on every request, so it is not in the run.
 - A complete picture is not always a detailed one: at large sizes weaker models often repeat rows, or type a coarse picture enlarged.
 - The cost estimate assumes far fewer thinking tokens than the newest models spend at their highest effort. Its counts of attempts and judging calls are exact.
 - Models without tool calling are not supported.

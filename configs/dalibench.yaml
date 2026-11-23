@@ -1,8 +1,9 @@
-# DaliBench: sixteen paintings at four widths, nine model entries, two judges.
+# DaliBench: sixteen paintings at four widths, eleven model entries, two judges.
 #
 # Every model is at its provider's highest reasoning setting. Claude Haiku 5.5 is listed a second
 # time at its default effort and kept aside from the scores (see `aside` at the end).
-# The API keys are read from the environment: ANTHROPIC_API_KEY, OPENAI_API_KEY, and GEMINI_API_KEY.
+# The API keys are read from the environment: ANTHROPIC_API_KEY, OPENAI_API_KEY, GEMINI_API_KEY, and
+# OPENROUTER_API_KEY (GLM 5.3 and Inkling 2 Small are called through OpenRouter, each pinned to one provider).
 #
 # Run from the repository root:
 #   paintbench estimate --config configs/dalibench.yaml    # counts the calls and prints a rough cost; calls no model
@@ -40,7 +41,7 @@ widths: [16, 32, 64, 128]
 repeats: 1
 limits: {max_steps: 40, max_minutes: 180, max_nudges: 3}
 retries: {call_retries: 8, restarts: 2, backoff_seconds: 2, backoff_max_seconds: 60}
-concurrency: {anthropic: 8, openai: 4, google: 4}   # attempts at once per provider: set these to what your own rate limits allow
+concurrency: {anthropic: 8, openai: 4, google: 4, openai_compat: 4}   # attempts at once per provider: set these to what your own rate limits allow
 
 models:
   - name: fable-5.2
@@ -115,6 +116,31 @@ models:
     max_output_tokens: 128000
     price: {input_per_mtok: 8.0, output_per_mtok: 40.0}
     options: {api_key_env: OPENAI_API_KEY}
+  - name: glm-5.3
+    provider: openai_compat
+    model: z-ai/glm-5.3
+    family: glm
+    reasoning: {effort: max}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 1.4, output_per_mtok: 4.4}
+    options:
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      stream_usage: false
+      # One provider, so that every picture comes from the same serving of the model.
+      extra_body: {provider: {order: ["z-ai"], allow_fallbacks: false, require_parameters: true}}
+  - name: inkling-2-small
+    provider: openai_compat
+    model: thinkingmachines/inkling-2-small
+    family: inkling
+    reasoning: {effort: max}
+    max_output_tokens: 128000
+    price: {input_per_mtok: 0.3, output_per_mtok: 1.0}
+    options:
+      base_url: https://openrouter.ai/api/v1
+      api_key_env: OPENROUTER_API_KEY
+      stream_usage: false
+      extra_body: {provider: {order: ["modal"], allow_fallbacks: false, require_parameters: true}}
 
 judges:
   - name: fable-5.2-judge
@@ -136,7 +162,7 @@ judges:
 
 judge:
   repeats: 3                     # judging calls per set, each with fresh random labels and order
-  max_per_call: 9                # the nine pictures of a painting at one width are ranked in one call
+  max_per_call: 12               # the up to eleven pictures of a painting at one width are ranked in one call
   peak_size: true                # also rank each model's own sizes of a painting against each other
 
 # Made and judged like the others, but left out of every comparison when the scores are computed.
